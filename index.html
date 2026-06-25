@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rudrapratap Singh — Frontend Developer & B.Tech Cyber Security student. Building clean, interactive, secure web experiences." />
+  <meta name="author" content="Rudrapratap Singh" />
+  <meta name="theme-color" content="#05060f" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rudrapratap Singh · Frontend Developer" />
+  <meta property="og:description" content="World-class interactive portfolio. Frontend Developer & Cyber Security student." />
+  <meta property="og:type" content="website" />
+  <title>Rudrapratap Singh · Frontend Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== LOADING SCREEN ========== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__name">RPS</span>
+      <div class="loader__bar"><span id="loaderBar"></span></div>
+      <span class="loader__pct" id="loaderPct">0%</span>
+    </div>
+  </div>
+
+  <!-- ========== CUSTOM CURSOR ========== -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- ========== 3D BACKGROUND CANVAS ========== -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ========== NAVBAR ========== -->
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a href="#home" class="nav__logo">RPS<span>.</span></a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="hero__content">
+        <p class="hero__tag reveal">B.Tech · Cyber Security · India</p>
+        <h1 class="hero__title">
+          <span class="line">Rudrapratap</span>
+          <span class="line gradient">Singh</span>
+        </h1>
+        <p class="hero__roles reveal">
+          <span class="hero__static">I'm a</span>
+          <span class="hero__typed" id="typed"></span>
+        </p>
+        <p class="hero__desc reveal">
+          I build clean, interactive, and secure client-side web experiences,
+          blending modern UI architecture with AI-assisted workflows.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#projects" class="btn btn--primary" data-cursor>View My Work</a>
+          <a href="assets/resume.pdf" class="btn btn--ghost" download data-cursor>Download CV</a>
+        </div>
+        <div class="hero__socials reveal">
+          <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" aria-label="GitHub" data-cursor>GitHub</a>
+          <a href="https://linkedin.com/in/rudrapratap-singh" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor>LinkedIn</a>
+          <a href="https://portfolio.netlify.app" target="_blank" rel="noopener" aria-label="Portfolio" data-cursor>Portfolio</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true"><span></span>Scroll</div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section" id="about">
+      <p class="section__index reveal">01 / About</p>
+      <h2 class="section__title reveal">About Me</h2>
+      <div class="about">
+        <p class="about__lead reveal">
+          Motivated B.Tech Cyber Security student with a focused interest in modern frontend development.
+        </p>
+        <p class="about__text reveal">
+          Skilled in core web foundations, interactive UI architectures, and engineering clean,
+          user-friendly client-side applications. Passionate about bridging secure backend
+          mechanics with intuitive layouts, using rapid AI-assisted workflows and agile
+          development practices to build efficient, scalable web environments.
+        </p>
+        <ul class="about__strengths reveal">
+          <li>Problem Solving</li>
+          <li>Quick Learning</li>
+          <li>Team Collaboration</li>
+          <li>Technical Communication</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section class="section" id="skills">
+      <p class="section__index reveal">02 / Skills</p>
+      <h2 class="section__title reveal">Technical Skills</h2>
+
+      <div class="filters reveal" id="filters">
+        <button class="filter active" data-filter="all" data-cursor>All</button>
+        <button class="filter" data-filter="web" data-cursor>Web</button>
+        <button class="filter" data-filter="ai" data-cursor>AI</button>
+        <button class="filter" data-filter="core" data-cursor>Core</button>
+        <button class="filter" data-filter="cs" data-cursor>CS</button>
+      </div>
+
+      <div class="skills" id="skills-grid">
+        <article class="skill glass tilt" data-cat="web"><span class="skill__ic">⚛️</span><h3>React</h3></article>
+        <article class="skill glass tilt" data-cat="web"><span class="skill__ic">🔵</span><h3>HTML5</h3></article>
+        <article class="skill glass tilt" data-cat="web"><span class="skill__ic">🎨</span><h3>CSS3</h3></article>
+        <article class="skill glass tilt" data-cat="web"><span class="skill__ic">🟨</span><h3>JavaScript ES6+</h3></article>
+        <article class="skill glass tilt" data-cat="web"><span class="skill__ic">📱</span><h3>Responsive Design</h3></article>
+        <article class="skill glass tilt" data-cat="ai"><span class="skill__ic">🤖</span><h3>Prompt Engineering</h3></article>
+        <article class="skill glass tilt" data-cat="ai"><span class="skill__ic">✨</span><h3>React Vibe Coding</h3></article>
+        <article class="skill glass tilt" data-cat="ai"><span class="skill__ic">🧩</span><h3>Gemini · ChatGPT · Claude</h3></article>
+        <article class="skill glass tilt" data-cat="core"><span class="skill__ic">🐍</span><h3>Python</h3></article>
+        <article class="skill glass tilt" data-cat="core"><span class="skill__ic">☕</span><h3>Java</h3></article>
+        <article class="skill glass tilt" data-cat="core"><span class="skill__ic">➕</span><h3>C++</h3></article>
+        <article class="skill glass tilt" data-cat="cs"><span class="skill__ic">🗄️</span><h3>DBMS</h3></article>
+        <article class="skill glass tilt" data-cat="cs"><span class="skill__ic">🧠</span><h3>DSA</h3></article>
+      </div>
+    </section>
+
+    <!-- ========== EXPERIENCE / OPEN TO INTERNSHIPS ========== -->
+    <section class="section" id="experience">
+      <p class="section__index reveal">03 / Experience</p>
+      <h2 class="section__title reveal">Experience</h2>
+      <div class="cta-card glass reveal">
+        <div class="cta-card__pulse" aria-hidden="true"></div>
+        <h3>🚀 Open to Internships</h3>
+        <p>
+          I'm actively seeking <strong>Frontend Developer internship</strong> opportunities where I can
+          contribute to real products, learn from experienced teams, and ship polished,
+          performant interfaces. Available immediately.
+        </p>
+        <a href="#contact" class="btn btn--primary" data-cursor>Let's Work Together</a>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section class="section" id="projects">
+      <p class="section__index reveal">04 / Projects</p>
+      <h2 class="section__title reveal">Selected Projects</h2>
+
+      <div class="projects">
+        <!-- Project -->
+        <article class="project glass reveal tilt">
+          <div class="project__thumb"><span>🪐</span></div>
+          <div class="project__body">
+            <h3>Personal Portfolio Website</h3>
+            <p>A professional, responsive single-page portfolio with dynamic modular components,
+              modern animations, and highly adaptive layouts across device viewports.</p>
+            <ul class="project__features">
+              <li>Modular components</li><li>Smooth animations</li><li>Fully responsive</li>
+            </ul>
+            <div class="project__stack"><span>React</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <div class="project__links">
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini" data-cursor>GitHub</a>
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini btn--ghost" data-cursor>Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project glass reveal tilt">
+          <div class="project__thumb"><span>💰</span></div>
+          <div class="project__body">
+            <h3>Personal Expense Tracker</h3>
+            <p>A financial dashboard with reactive state management and browser Local Storage
+              for structural data caching and cross-session persistence.</p>
+            <ul class="project__features">
+              <li>Reactive state</li><li>Local Storage</li><li>Data persistence</li>
+            </ul>
+            <div class="project__stack"><span>JavaScript</span><span>Local Storage</span><span>CSS</span></div>
+            <div class="project__links">
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini" data-cursor>GitHub</a>
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini btn--ghost" data-cursor>Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project glass reveal tilt">
+          <div class="project__thumb"><span>🔐</span></div>
+          <div class="project__body">
+            <h3>Secure Password Generator</h3>
+            <p>An interactive client security tool generating customized, randomized strings
+              matching real-time complexity criteria and slider constraints.</p>
+            <ul class="project__features">
+              <li>Custom complexity</li><li>Real-time output</li><li>Slider controls</li>
+            </ul>
+            <div class="project__stack"><span>JavaScript</span><span>CSS</span></div>
+            <div class="project__links">
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini" data-cursor>GitHub</a>
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini btn--ghost" data-cursor>Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project glass reveal tilt">
+          <div class="project__thumb"><span>🌦️</span></div>
+          <div class="project__body">
+            <h3>Real-Time Weather Application</h3>
+            <p>Async client-side app using a multi-stage public API pipeline to resolve location
+              strings into geocoding params and render localized metrics dynamically.</p>
+            <ul class="project__features">
+              <li>Fetch API pipeline</li><li>Geocoding</li><li>Dynamic rendering</li>
+            </ul>
+            <div class="project__stack"><span>Fetch API</span><span>JavaScript</span></div>
+            <div class="project__links">
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini" data-cursor>GitHub</a>
+              <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="btn btn--mini btn--ghost" data-cursor>Live Demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== EDUCATION ========== -->
+    <section class="section" id="education">
+      <p class="section__index reveal">05 / Education</p>
+      <h2 class="section__title reveal">Education</h2>
+      <div class="timeline">
+        <div class="timeline__item glass reveal">
+          <span class="timeline__date">2024 – 2028</span>
+          <h3>B.Tech CSE — Cyber Security</h3>
+          <p>Teerthanker Mahaveer University · Latest SGPA: 8.45</p>
+        </div>
+        <div class="timeline__item glass reveal">
+          <span class="timeline__date">Completed</span>
+          <h3>Senior Secondary (Class XII)</h3>
+          <p>Academic Board Examination · 90.2%</p>
+        </div>
+        <div class="timeline__item glass reveal">
+          <span class="timeline__date">Completed</span>
+          <h3>Higher Secondary (Class X)</h3>
+          <p>Academic Board Examination · 88.4%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CERTIFICATIONS ========== -->
+    <section class="section" id="certifications">
+      <p class="section__index reveal">06 / Certifications</p>
+      <h2 class="section__title reveal">Certifications</h2>
+      <div class="certs">
+        <article class="cert glass reveal tilt">
+          <span class="cert__badge">Oracle</span>
+          <h3>OCI Certified Generative AI Professional</h3>
+          <p>Oracle · Oct 2025 – Oct 2027</p>
+        </article>
+        <article class="cert glass reveal tilt">
+          <span class="cert__badge">Oracle</span>
+          <h3>OCI Certified AI Foundation Associate</h3>
+          <p>Oracle · Oct 2025 – Oct 2027</p>
+          <small>ID: 323140618OCI25AICFA</small>
+        </article>
+        <article class="cert glass reveal tilt">
+          <span class="cert__badge">McKinsey</span>
+          <h3>McKinsey.org Forward Program</h3>
+          <p>McKinsey &amp; Company · Dec 2025</p>
+          <small>ID: eb59f3af-aeb1-43fb-8c2a-e96e5bb4895e</small>
+        </article>
+        <article class="cert glass reveal tilt">
+          <span class="cert__badge">IIT Bombay</span>
+          <h3>Python 3.4.3 Training</h3>
+          <p>Spoken Tutorial · SINE · IIT Bombay · Apr 2026</p>
+          <small>ID: 4773685ZHO</small>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section" id="contact">
+      <p class="section__index reveal">07 / Contact</p>
+      <h2 class="section__title reveal">Let's Build Something</h2>
+      <div class="contact">
+        <form class="contact__form glass reveal" id="contactForm"
+              action="https://formspree.io/f/xbdvgqdd" method="POST">
+          <div class="field">
+            <input type="text" name="name" id="name" required placeholder=" " />
+            <label for="name">Your Name</label>
+          </div>
+          <div class="field">
+            <input type="email" name="email" id="email" required placeholder=" " />
+            <label for="email">Your Email</label>
+          </div>
+          <div class="field">
+            <textarea name="message" id="message" rows="4" required placeholder=" "></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit" class="btn btn--primary" data-cursor>Send Message</button>
+          <p class="form__status" id="formStatus" role="status"></p>
+        </form>
+
+        <div class="contact__side reveal">
+          <a href="mailto:ursrudra315@gmail.com" class="contact__link glass" data-cursor>✉️ ursrudra315@gmail.com</a>
+          <a href="https://github.com/ursrudra315" target="_blank" rel="noopener" class="contact__link glass" data-cursor>🐙 GitHub</a>
+          <a href="https://linkedin.com/in/rudrapratap-singh" target="_blank" rel="noopener" class="contact__link glass" data-cursor>💼 LinkedIn</a>
+          <a href="https://portfolio.netlify.app" target="_blank" rel="noopener" class="contact__link glass" data-cursor>🌐 Portfolio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Rudrapratap Singh · Designed &amp; built with Three.js.</p>
+    <a href="#home" class="footer__top" data-cursor>Back to top ↑</a>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
